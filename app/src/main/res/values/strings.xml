@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">TrashTec</string>
+    <string name="next">Siguiente</string>
+    <string name="started">Empezar</string>
+    <string name="skip">Skip</string>
+    <string name="pasar">No volver a mostrar</string>
+    <string name="login">login with</string>
+    <string name="facebook">facebook</string>
+    <string name="google">google</string>
+    <string name="Sabias">Sabías Que ?</string>
+    <string name="categorias">Categorias de equipos Electronicos</string>
+    <string name="ver">ver detalles...</string>
+    <string name="titulo_main">Recicla Ahora!</string>
+    <string name="titulo_main_2">No te quedes</string>
+    <string name="titulo_main_3">SUMATE</string>
+    <string name="por">¿Por que?</string>
+    <string name="examples">Ejemplos</string>
+    <string name="link_video"><u>Ver Video</u></string>
+    <string name="beneficios">Beneficios de Reciclar Tecnologicamente</string>
+    <string name="razones">8 Razones por la que deberiamos reciclar </string>
+    <string name="titulo_calendario">Calendario</string>
+    <string name="recolectado">Dias que se Recogio</string>
+    <string name="por_recolectar">Dias por Recolectar</string>
+    <string name="acopio">Dias donde se reciclo en Centros de Acopio</string>
+    <string name="titulo_recojo">Siguiente Recojo</string>
+    <string name="siguiente">Siguiente Mes </string>
+    <string name="titulo_centros_acopio">Centros de Acopio en Cajamarca</string>
+    <string name="mostrar_mas">Mostar mas centros de Acopio</string>
+    <string name="empresa">Empresa :</string>
+    <string name="direccion">Dirección :</string>
+    <string name="titulo_atencion">Horarios de Atención</string>
+    <string name="ir_google">Ver en google Maps</string>
+    <string name="select_categoria">Seleccione una Categoria</string>
+    <string name="select_sub_categoria">Seleccione una Sub Categoria</string>
+    <string name="desc">Descripcion del Producto</string>
+    <string name="add_post">Agregar Publicación</string>
+    <string name="telefono">Agregar Telefono</string>
+    <string name="Titulo_descuentos">Descuentos</string>
+    <string name="titulo_farmacia">Farmacias y Boticas</string>
+    <string name="titulo_bodega">Bodegas</string>
+    <string name="titulo_restaurantes">Restaurantes</string>
+    <string name="ver_descuentos">Ver descuentos....</string>
+    <string name="mis_descuentos">Mis Descuentos</string>
+    <string name="descuentos">Empresas</string>
+    <string name="permitido">Permitido</string>
+    <string name="no_permitido">No Permitido</string>
+    <string name="reglas">Algunos Tips y Reglas</string>
+    <string name="group">General</string>
+    <string name="title_notificacion">Notificaciones</string>
+    <string name="recibir">Recibir Notificaciones </string>
+    <string name="title_otros">Otros</string>
+    <string name="contactanos">Contactanos</string>
+    <string name="copyright">Copyright</string>
+    <string name="version_serial">Versión y Serial</string>
+    <string name="terminos">Terminos y Condiciones</string>
+    <string name="text_1_copy">Copyright® 2020 TrashTec</string>
+    <string name="text_2_copy">Todos los derechos Reservados</string>
+    <string name="text_version">Version 1.0.1</string>
+    <string name="como_">El recojo se hara una vez a la semana todos los sabados. Nosotros iremos a sus Casas a recoger sus aparatos eletricos y electornicos.</string>
+    <string name="como_2">En otro caso tambien puede acercarse a los centros de acopios ubicados en las direcciones de los Centros de acopio dentro de la aplicación</string>
+    <string name="como_1_1">Para conseguir puntos primero realize una publicación, una vez aprobada espere que todas las semanas recogeremos sus aparatos dentro del día</string>
+    <string name="como_2_2">Ya una vez estando en su domicilio verificaremos si correctamente esta todo en lo publicado. Justo déspues le otorgaremos los puntos</string>
+    <!--Menu String bototomnavigationview-->
+    <string name="Inicio">Inicio</string>
+    <string name="Calendario">Calendario</string>
+    <string name="Acopio">Centros de Acopio</string>
+    <string name="Guia">Reciclaje</string>
+    <string name="more">Más</string>
+    <string name="titulo_tesis">"Impacto del Aplicativo Móvil TrashTec en el Reciclaje Tecnológico en el Distrito de Cajamarca"</string>
+
+    <string name="correo_contacto">trashtrackercompany@gmail.com</string>
+
+    <!--font familty -->
+    <string name="font_family_condensed">sans-serif-condensed</string>
+    <string name="font_family_raleway">raleway</string>
+
+    <!--Keys-->
+    <string name="facebook_app_id">275505493487747</string>
+    <string name="fb_login_protocol_scheme">fb275505493487747</string>
+
+
+    <!--Optiones Reciclaje Fragment -->
+    <string name="post">Mis Publicaciones</string>
+    <string name="store">Tienda</string>
+    <string name="guia">Guia de Reciclaje</string>
+</resources>

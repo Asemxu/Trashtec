@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:fontFamily="@font/raleway_medium"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:id="@+id/dia"
+        android:text="DIa"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/hora_centro"
+        android:fontFamily="@font/raleway_medium"
+        android:textColor="#000"
+        android:textSize="17.5dp"
+        android:text="Hora"/>
+</LinearLayout>

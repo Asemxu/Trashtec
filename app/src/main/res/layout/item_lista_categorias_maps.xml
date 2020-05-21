@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/fridge"
+        android:id="@+id/imagen_categoria_maps"/>
+    <TextView
+        android:layout_width="275dp"
+        android:paddingTop="7.5dp"
+        android:fontFamily="@font/raleway_medium"
+        android:textStyle="bold"
+        android:layout_height="match_parent"
+        android:id="@+id/texto_categoria_maps"
+        android:text="Categoria"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:src="@drawable/black_arrow_righ"/>
+</LinearLayout>

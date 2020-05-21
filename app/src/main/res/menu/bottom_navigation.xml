@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/home"
+        android:icon="@drawable/outline_house_24"
+        android:tooltipText="@string/font_family_raleway"
+    android:title="@string/Inicio"/>
+    <item android:id="@+id/calendar"
+        android:icon="@drawable/outline_date_range_24"
+        android:tooltipText="@string/font_family_raleway"
+        android:title="@string/Calendario" />
+    <item android:id="@+id/Points"
+        android:icon="@drawable/outline_room_24"
+        android:title="@string/Acopio"/>
+    <item android:id="@+id/recicla"
+        android:icon="@drawable/outline_autorenew_24"
+        android:title="@string/Guia"/>
+    <!--<item android:id="@+id/store"
+        android:icon="@drawable/outline_storefront_24"
+        tools:ignore="MenuTitle"/>-->
+    <item android:id="@+id/more"
+        android:icon="@drawable/outline_more_horiz_24"
+        android:title="@string/more"/>
+
+</menu>

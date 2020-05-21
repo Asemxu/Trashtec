@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="420dp"
+    android:orientation="vertical"
+    android:elevation="100dp"
+    android:background="@drawable/back_detalle"
+    android:layout_gravity="center">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/close"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="right"
+            android:id="@+id/btn_close_about"
+            />
+        <ImageView
+            android:layout_height="110dp"
+            android:layout_marginTop="-40dp"
+            android:layout_gravity="center"
+            android:layout_width="120dp"
+            android:src="@drawable/icon_basura"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_medium"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="Sobre TrashTec"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:autoSizeTextType="uniform"
+            android:layout_margin="20dp"
+            android:id="@+id/texto_about"
+            android:fontFamily="@font/raleway_medium"
+            android:textStyle="bold"
+            android:textAlignment="textStart"
+            android:text="Contenido"/>
+    </LinearLayout>
+</LinearLayout>

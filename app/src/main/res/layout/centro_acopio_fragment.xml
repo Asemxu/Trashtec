@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.MaterialComponents">
+    <com.google.android.gms.maps.MapView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mapa_centros"/>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="wrap_content"
+        android:id="@+id/btn_ver_centros_lista"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:text="Lista de Centros"
+        android:textColor="@color/white"
+        app:iconTint="@color/white"
+        app:icon="@drawable/list_white"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="10dp"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/principal" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
