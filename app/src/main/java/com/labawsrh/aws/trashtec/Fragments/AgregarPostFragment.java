@@ -150,7 +150,7 @@ public class AgregarPostFragment extends Fragment {
             dialog_material.setIcon(R.drawable.warning);
             dialog_material.setMessage("Si guarda una publicación no podra borrarla el mismo dia en que se hara el recogo");
             dialog_material.setPositiveButton("Aceptar", (dialog_, which) -> {
-                progressDialog = ProgressDialog.show(getContext(),"Registrando Publicación","Espere demora un Poco.......",false,false);
+                progressDialog = ProgressDialog.show(getContext(),"Registrando Publicación","Espere mientras se guarda la publicación.......",false,false);
                 Validation validation = new Validation(dialog,getContext(),GetPublicacion());
                 if(validation.esValidoPublicacion()){
                     firebase = new Firebase(GetPublicacion(),databaseReference,getContext(),path_images,activity);

@@ -132,11 +132,11 @@ public class CalendarFragment extends Fragment {
                             i++;
                         }
                     }
-                    calendario.setEvents(eventos);
-                    calendario.setSelectedDates(calendars);
-                    Handler handler = new Handler();
-                    handler.postDelayed(() -> enableBottomBar(true),1000);
                 }
+                calendario.setEvents(eventos);
+                calendario.setSelectedDates(calendars);
+                Handler handler = new Handler();
+                handler.postDelayed(() -> enableBottomBar(true),1000);
             }
 
             @Override

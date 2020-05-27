@@ -102,7 +102,6 @@ public class Main_User_Activity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 boolean tipo_cuento =dataSnapshot.getValue(Boolean.class);
-                Log.i("Data",""+tipo_cuento);
                 if(tipo_cuento){
                     GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
                     if(account!=null)
@@ -180,7 +179,7 @@ public class Main_User_Activity extends AppCompatActivity {
         if(!tipo_deslogeo)
             dialog_material.setMessage("Desea Salir de la Aplicación");
         else
-            dialog_material.setMessage("Desea Descvincular la Aplicación de su Cuenta?");
+            dialog_material.setMessage("Ojo tiene que desvincular su cuenta de facebook de su dispositivo");
         dialog_material.setNegativeButton("Cancelar", (dialog, which) -> dialog.dismiss());
         dialog_material.setPositiveButton("Aceptar", (dialog, which) -> {
             autentificacion = new Autentificacion(auth,getApplicationContext(),this);

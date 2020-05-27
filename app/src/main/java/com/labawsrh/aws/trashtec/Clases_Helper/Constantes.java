@@ -95,7 +95,7 @@ public class Constantes {
             "resiudos de componentes toxicos como el mercurio, Arsénico, Bario, Cadmio, Mercurio, etc ";
 
     public final static String  About_Info = "TrashTec es una aplicación para fomentar el " +"reciclaje técnologico"
-            +", donde podra conseguir descuentos en cualquiera de las empresas afiliadas a la aplicación, a traves de puntos "+
+            +", donde podra conseguir descuentos en cualquiera de las empresas afiliadas a la aplicación, a través de puntos "+
             "que conseguiras al realizar una aportación atraves de tus publicaciones";
 
 

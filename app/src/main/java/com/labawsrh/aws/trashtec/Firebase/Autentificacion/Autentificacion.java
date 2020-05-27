@@ -77,7 +77,7 @@ public class Autentificacion {
                     UpdateUI(user);
                     dialog.dismiss();
                 }else{
-                    Toast.makeText(context,"Login Cancelado",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,"Login Cancelado "+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                     UpdateUI(null);
                     dialog.dismiss();
                 }
@@ -100,6 +100,8 @@ public class Autentificacion {
     public void SignOutFacebook(boolean Tipo_desloge) {
         FirebaseAuth.getInstance().signOut();
         LoginManager.getInstance().logOut();
+        IrLoginActivity();
+        /*
         if (!Tipo_desloge) {
             IrLoginActivity();
         }else{
@@ -111,16 +113,16 @@ public class Autentificacion {
             call.enqueue(new Callback<Boolean>() {
                 @Override
                 public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                    Log.i("Data",""+response.body());
+                    Log.i("Informacion",""+response.body());
                     IrLoginActivity();
                 }
 
                 @Override
                 public void onFailure(Call<Boolean> call, Throwable t) {
-                    Log.i("Data","Fallo");
+                    Log.i("Informacion","Fallo");
                     IrLoginActivity();
                 }
-            });
+            });*
             /*Call<Data>  call = services.GetPermisos(token.getToken());
             call.enqueue(new Callback<Data>() {
                 @Override
@@ -136,7 +138,6 @@ public class Autentificacion {
                     Log.i("Data","Fallo");
                 }
             });*/
-        }
         //RevokeAccessGoogle(options);
     }
     public void SignOutGoogle(boolean Tipo_deslogeo,GoogleSignInOptions options){
@@ -149,7 +150,7 @@ public class Autentificacion {
     }
 
     private void IrLoginActivity() {
-        Intent ir_login = new Intent(context,LoginActivity.class);
+        Intent ir_login = new Intent(main_user_activity,LoginActivity.class);
         main_user_activity.startActivity(ir_login);
         Toast.makeText(context,"Ádios..........",Toast.LENGTH_SHORT).show();
     }
