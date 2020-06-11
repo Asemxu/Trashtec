@@ -65,7 +65,8 @@ public class DescuentosFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for(DataSnapshot data:dataSnapshot.getChildren()){
                         Descuentos descuento = data.getValue(Descuentos.class);
-                        descuentosList.add(descuento);
+                        if(descuento.vista)
+                            descuentosList.add(descuento);
                     }
                     descuentoAdapter = new DescuentoAdapter("Descuentos",getContext(),R.layout.item_descuento,descuentosList,activity);
                     lista_descuentos.setAdapter(descuentoAdapter);

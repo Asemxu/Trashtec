@@ -54,6 +54,7 @@ public class AgregarPostFragment extends Fragment {
     private TextInputEditText telefono;
     private TextInputEditText descripcion;
     private TextInputEditText direccion;
+    private TextInputEditText cantidad_kilogramos;
     private Firebase firebase;
     private DatabaseReference databaseReference = Firebase_Variables.database_reference;
     private ImageView imagen1;
@@ -169,7 +170,7 @@ public class AgregarPostFragment extends Fragment {
         subcategoria = subcategorias_lista.getText().toString();
         categoria = categorias_lista.getText().toString();
         return new Publicacion(direccion.getText().toString(),null,subcategoria,categoria,fecha_creacion,false,true,path_images.size(),telefono.getText().toString(),
-                descripcion.getText().toString());
+                descripcion.getText().toString(),cantidad_kilogramos.getText().toString());
     }
 
     private void ClickCategoria() {
@@ -220,6 +221,7 @@ public class AgregarPostFragment extends Fragment {
         telefono = view.findViewById(R.id.add_telefono);
         direccion = view.findViewById(R.id.direccion);
         descripcion = view.findViewById(R.id.descripcion);
+        cantidad_kilogramos = view.findViewById(R.id.cantidad_kilogramos);
         path_images = new ArrayList<>(6);
         imagen1 = view.findViewById(R.id.imagen_1);
         imagen2 = view.findViewById(R.id.imagen_2);
@@ -232,10 +234,11 @@ public class AgregarPostFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode ==Activity.RESULT_OK){
-            Log.i("Cant","Ok");
+        Log.i("Request","Req"+resultCode);
+        if(resultCode ==Activity.RESULT_OK)
             SelectImage(imagen_seleccionada,data.getData());
-        }
+        else
+            hizo_click = false;
     }
 
     private void SelectImage(int imagen_seleccionada,Uri uri) {

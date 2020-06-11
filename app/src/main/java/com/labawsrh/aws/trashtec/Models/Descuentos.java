@@ -6,6 +6,7 @@ public class Descuentos {
     public String Titulo;
     public String Id;
     public int descuento;
+    public boolean vista;
     public int puntos;
     public String fecha_creacion;
     public Descuentos(){}

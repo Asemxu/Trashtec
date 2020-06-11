@@ -10,10 +10,11 @@ public class Publicacion {
     public boolean Estado;
     public boolean Estado_Vista;
     public int Cantidad_fotos;
+    public float Kg_basura;
     public String Descripcion;
     public Publicacion(){}
     public Publicacion(String direccion_publicacion,String id,String subcategoria,String Categoria,String Fecha_creacion,boolean Estado,boolean Estado_Vista
-                        , int cantidad_fotos,String Telefono,String Descripcion){
+                        , int cantidad_fotos,String Telefono,String Descripcion,String Kg_basura){
         this.direccion_publicacion = direccion_publicacion;
         this.Id = id;
         this.Subcategoria = subcategoria;
@@ -24,5 +25,6 @@ public class Publicacion {
         this.Categoria = Categoria;
         this.Telefono = Telefono;
         this.Descripcion = Descripcion;
+        this.Kg_basura = Float.parseFloat(Kg_basura);
     }
 }

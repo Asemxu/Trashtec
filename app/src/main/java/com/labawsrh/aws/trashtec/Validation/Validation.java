@@ -61,7 +61,13 @@ public class Validation {
         ValidarSubCategoria(publicacion.Subcategoria);
         ValidarCantidadFotos(publicacion.Cantidad_fotos);
         ValidarDireccion(publicacion.direccion_publicacion);
+        ValidarCantidadKilogramos(String.valueOf(publicacion.Kg_basura));
         return errorManager.isValid();
+    }
+
+    private void ValidarCantidadKilogramos(String kg_basura) {
+        if(kg_basura.isEmpty())
+            errorManager.addError("La Cantidad es Obligatoria");
     }
 
     private void ValidarDireccion(String direccion_publicacion) {

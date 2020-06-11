@@ -67,7 +67,7 @@
     <string name="Guia">Reciclaje</string>
     <string name="more">Más</string>
     <string name="titulo_tesis">"Impacto del Aplicativo Móvil TrashTec en el Reciclaje Tecnológico en el Distrito de Cajamarca"</string>
-
+    <string name="add_cantidad">Cantidad en Kg</string>
     <string name="correo_contacto">trashtrackercompany@gmail.com</string>
 
     <!--font familty -->

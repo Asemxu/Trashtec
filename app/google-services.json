@@ -15,10 +15,55 @@
       },
       "oauth_client": [
         {
+          "client_id": "787891346829-rped1nqes0ot0ob0mappcl89gra2dgdd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.labawsrh.aws.trashtec",
+            "certificate_hash": "da2c020b2bc0f4a9b84de9f5343556d3d5a998c1"
+          }
+        },
+        {
           "client_id": "787891346829-8ea3b90hbjdd5f9q2210r2ldpgau667d.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.labawsrh.aws.trashtec",
+            "certificate_hash": "791fc866d0852789216841e88a92a130636da959"
+          }
+        },
+        {
+          "client_id": "787891346829-370rgkhdj7qivvccfersgo1bo9fa0ueb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAT4KsPhOuLav07v74VZA6BDU4e0uxDqTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787891346829-370rgkhdj7qivvccfersgo1bo9fa0ueb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787891346829:android:452d5a8b27587b67e6b1c4",
+        "android_client_info": {
+          "package_name": "com.tesis.trashtecadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787891346829-jvidkg64m98cpoc1qi2sbb0ssdv497ct.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tesis.trashtecadmin",
             "certificate_hash": "791fc866d0852789216841e88a92a130636da959"
           }
         },

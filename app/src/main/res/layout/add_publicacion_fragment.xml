@@ -125,10 +125,28 @@
                                 android:fontFamily="@font/raleway_medium"
                                 android:textStyle="bold"
                                 />
-
                         </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/telefono"
+                        android:id="@+id/textField2"
+                        android:layout_margin="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/white"
+                        android:hint="@string/add_cantidad">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:inputType="numberDecimal"
+                            android:id="@+id/cantidad_kilogramos"
+                            android:backgroundTint="@color/principal"
+                            android:fontFamily="@font/raleway_medium"
+                            android:textStyle="bold"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textField3"
                         android:layout_margin="20dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
