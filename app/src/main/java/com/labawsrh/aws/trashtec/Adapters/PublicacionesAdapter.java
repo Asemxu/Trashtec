@@ -1,10 +1,13 @@
 package com.labawsrh.aws.trashtec.Adapters;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
@@ -12,11 +15,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -29,15 +36,19 @@ import com.labawsrh.aws.trashtec.Clases_Helper.Constantes;
 import com.labawsrh.aws.trashtec.Clases_Helper.Fecha;
 import com.labawsrh.aws.trashtec.Clases_Helper.Firebase_Variables;
 import com.labawsrh.aws.trashtec.Firebase.Database.Firebase;
+import com.labawsrh.aws.trashtec.Fragments.EditarPostFragment;
 import com.labawsrh.aws.trashtec.Fragments.PublicacionesFragment;
+import com.labawsrh.aws.trashtec.Fragments.TiendaFragment;
 import com.labawsrh.aws.trashtec.Models.Mes;
 import com.labawsrh.aws.trashtec.Models.Publicacion;
 import com.labawsrh.aws.trashtec.Models.User;
 import com.labawsrh.aws.trashtec.R;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class PublicacionesAdapter extends ArrayAdapter {
     private Context context;
@@ -45,10 +56,12 @@ public class PublicacionesAdapter extends ArrayAdapter {
     private Main_User_Activity activity;
     private DatabaseReference databaseReference = Firebase_Variables.database_reference;
     private int resource;
-    private Firebase firebase;
+    private Dialog dialog;
     private List<Publicacion> publicacions;
+    private Fragment fragment;
+    private List<String> imagenes = new ArrayList<>();
+    private ImagenesConocimientoAdapter imagenesadapter;
     private String [] meses = Constantes.meses;
-    private Fragment  fragment;
     Calendar calendar = Calendar.getInstance();
     Date fecha = calendar.getTime();
     String mes_actual = meses[fecha.getMonth()];
@@ -59,6 +72,7 @@ public class PublicacionesAdapter extends ArrayAdapter {
         this.resource = resource;
         this.publicacions = publicaciones;
         this.activity = activity;
+        this.dialog = new Dialog(context);
     }
     @SuppressLint("ViewHolder")
     @NonNull
@@ -69,6 +83,8 @@ public class PublicacionesAdapter extends ArrayAdapter {
         Publicacion publicacion = publicacions.get(position);
             ImageView imagen_publicacion = convertView.findViewById(R.id.imagen_publicacion);
             ImageView delete_post = convertView.findViewById(R.id.btn_delete_post);
+            ImageView editar_post = convertView.findViewById(R.id.btn_edit_post);
+            LinearLayout container_texto = convertView.findViewById(R.id.container_texto);
             TextView id_publicacion = convertView.findViewById(R.id.id_publicacion);
             TextView descripcion_publicacion = convertView.findViewById(R.id.descripcion);
             TextView estado = convertView.findViewById(R.id.estado_publicacion);
@@ -80,10 +96,64 @@ public class PublicacionesAdapter extends ArrayAdapter {
             } else {
                 estado.setTextColor(context.getResources().getColor(R.color.principal));
                 estado.setText("Aprobado");
+                editar_post.setVisibility(View.GONE);
             }
             CargarImagen(publicacion.Id,imagen_publicacion);
             DeletePost(delete_post,publicacion,context);
+            CLickImagen(imagen_publicacion,publicacion);
+            ClickEditarPublicacion(editar_post,publicacion);
+            ClickContainerTexto(container_texto,publicacion);
         return convertView;
+    }
+
+    private void ClickEditarPublicacion(ImageView editar_post,Publicacion publicacion) {
+        editar_post.setOnClickListener(v->{
+            fragment = new EditarPostFragment(publicacion);
+            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_reciclaje,fragment).commit();
+        });
+    }
+
+    private void ClickContainerTexto(LinearLayout container_texto,Publicacion publicacion) {
+        container_texto.setOnClickListener(v->{
+            VerDetalle(publicacion);
+        });
+    }
+
+    private void VerDetalle(Publicacion publicacion) {
+        dialog.setContentView(R.layout.publicacion_descripcion_item);
+        imagenes.clear();
+        for(int i = 0; i<publicacion.Cantidad_fotos;i++)
+            imagenes.add("");
+        LinearLayoutManager manager1 = new LinearLayoutManager(context);
+        manager1.setOrientation(LinearLayoutManager.HORIZONTAL);
+        RecyclerView lista = dialog.findViewById(R.id.list_imagenes_publicacion);
+        lista.setLayoutManager(manager1);
+        imagenesadapter = new ImagenesConocimientoAdapter(context,imagenes,Constantes.Publicacion,publicacion.Id);
+        lista.setAdapter(imagenesadapter);
+        TextView id_publicacion = dialog.findViewById(R.id.id_detalle_publicacion);
+        TextView categoria = dialog.findViewById(R.id.categoria_detalle);
+        TextView sub_categoria = dialog.findViewById(R.id.sub_categoria_detalle);
+        TextView descripcion = dialog.findViewById(R.id.descripcion_detalle);
+        TextView cantidad = dialog.findViewById(R.id.cantidad_kilogramos_detalle);
+        TextView telefono = dialog.findViewById(R.id.numero_detalle);
+        TextView direccion = dialog.findViewById(R.id.direccion_detalle);
+        ImageView btn_close = dialog.findViewById(R.id.btn_close_detalle_publicacion);
+        id_publicacion.setText("Id:"+publicacion.Id);
+        categoria.setText("Categoria: "+publicacion.Categoria);
+        sub_categoria.setText("Sub-Categoria: "+publicacion.Subcategoria);
+        descripcion.setText("Descripción: "+publicacion.Descripcion);
+        cantidad.setText("Peso Aproximado : "+publicacion.Kg_basura +" kg");
+        telefono.setText("Numero Telefonico: "+publicacion.Telefono);
+        direccion.setText("Dirección:"+ publicacion.direccion_publicacion);
+        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Constantes.CloseVentana(dialog,btn_close);
+        dialog.show();
+    }
+
+    private void CLickImagen(ImageView imagen_publicacion,Publicacion publicacion) {
+        imagen_publicacion.setOnClickListener(v->{
+            VerDetalle(publicacion);
+        });
     }
 
     private void DeletePost(ImageView delete_post, Publicacion publicacion,Context contexto) {

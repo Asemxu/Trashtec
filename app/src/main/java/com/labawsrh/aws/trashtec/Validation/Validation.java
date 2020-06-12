@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.google.firebase.auth.FirebaseUser;
 import com.labawsrh.aws.trashtec.Firebase.Database.Firebase;
-;
 import com.labawsrh.aws.trashtec.Models.Publicacion;
 import com.labawsrh.aws.trashtec.Models.User;
 
@@ -14,27 +13,30 @@ public class Validation {
     private User user;
     public  ErrorManager errorManager;
     private Firebase firebase;
-    private Context context;
     private Publicacion publicacion;
     public  Validation(FirebaseUser user,Firebase firebase,boolean tipo_cuenta){
         this.firebase=firebase;
         this.user= Firebase.GetUser(user,tipo_cuenta);
 
     }
-    public Validation(AlertDialog.Builder dialog, Context context,Publicacion publicacion){
-        this.context = context;
+    public Validation(AlertDialog.Builder dialog,Publicacion publicacion){
         this.publicacion = publicacion;
         errorManager = new ErrorManager(dialog);
 
     }
-    private void ValidarTelefono(String telefono) {
+    public Validation(AlertDialog.Builder dialog){
+        errorManager = new ErrorManager(dialog);
+
+    }
+    public void ValidarTelefono(String telefono) {
         if(isNullorEmpty(telefono)) {
             errorManager.addError("El telefono es obligatorio y no debe contener espacios");
         }else if(telefono.length()<9){
             errorManager.addError("El telefono solo acepta 9 digitos");
-        }
+        }else if(telefono.length()>10)
+            errorManager.addError("El telefono solo acepta 9 digitos");
     }
-    private void ValidarDescripcion(String desripcion) {
+    public void ValidarDescripcion(String desripcion) {
         if(desripcion.isEmpty())
             errorManager.addError("La descripcion es obligatoria");
         else if(desripcion.length()>=50)
@@ -65,12 +67,17 @@ public class Validation {
         return errorManager.isValid();
     }
 
-    private void ValidarCantidadKilogramos(String kg_basura) {
+    public void ValidarCantidadKilogramos(String kg_basura) {
         if(kg_basura.isEmpty())
             errorManager.addError("La Cantidad es Obligatoria");
+        else{
+            float cantidad_kilogramos = Float.parseFloat(kg_basura);
+            if(cantidad_kilogramos<=0)
+                errorManager.addError("La cantidad no puede ser menor o igual a cero");
+        }
     }
 
-    private void ValidarDireccion(String direccion_publicacion) {
+    public void ValidarDireccion(String direccion_publicacion) {
         if(direccion_publicacion.isEmpty())
             errorManager.addError("La dirección es Obligatoria");
     }
@@ -81,12 +88,12 @@ public class Validation {
             errorManager.addError("Tiene que ingresar por lo menos tres fotos diferentes");
     }
 
-    private void ValidarSubCategoria(String subcategoria) {
+    public void ValidarSubCategoria(String subcategoria) {
         if(subcategoria.isEmpty())
             errorManager.addError("Escoga una subcategoria");
     }
 
-    private void ValidarCategoria(String categoria) {
+    public void ValidarCategoria(String categoria) {
         if(categoria.isEmpty())
             errorManager.addError("Escoga una Categoria");
     }

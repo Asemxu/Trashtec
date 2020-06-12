@@ -21,4 +21,8 @@ public class Firebase_Variables {
         Log.i("Informacion", "Bucket = " + opts.getStorageBucket());
         return storage.getReferenceFromUrl("gs://trashtec-cb837.appspot.com/Fotos_Publicaciones/"+uid+"/").child(id).child("foto_1.png");
     }
+    public static StorageReference GetReferenceImages(String id, String uid,int i){
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        return storage.getReferenceFromUrl("gs://trashtec-cb837.appspot.com/Fotos_Publicaciones/"+uid+"/").child(id).child("foto_"+i+".png");
+    }
 }

@@ -74,7 +74,8 @@ public class Constantes {
     public final static int Log_Out = 4;
     public final static int Descvincular = 3;
 
-
+    public final static String Conocimiento = "Conocimiento";
+    public final static String Publicacion = "Publicacion";
 
     //base_url_retrofit_apigrah_facebook
     public final static String Url = "https://graph.facebook.com/";

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="420dp"
+    android:orientation="vertical"
+    android:elevation="100dp"
+    android:background="@drawable/back_detalle"
+    android:layout_gravity="center">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/raleway_medium"
+                android:id="@+id/id_detalle_publicacion"
+                android:textSize="20dp"
+                android:text="Id: "
+                />
+            <ImageView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/close"
+                android:layout_marginTop="5dp"
+                android:id="@+id/btn_close_detalle_publicacion"
+                android:layout_marginLeft="25dp"
+                />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:id="@+id/list_imagenes_publicacion"
+            />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Categoria: "
+                    android:textColor="@color/black"
+                    android:id="@+id/categoria_detalle"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="SubCategoria: "
+                    android:textColor="@color/black"
+                    android:id="@+id/sub_categoria_detalle"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Descripcion: "
+                    android:textColor="@color/black"
+                    android:id="@+id/descripcion_detalle"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Cantidad de Kg: "
+                    android:textColor="@color/black"
+                    android:id="@+id/cantidad_kilogramos_detalle"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Numero Telefonico : "
+                    android:textColor="@color/black"
+                    android:id="@+id/numero_detalle"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Dirección: "
+                    android:textColor="@color/black"
+                    android:id="@+id/direccion_detalle"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

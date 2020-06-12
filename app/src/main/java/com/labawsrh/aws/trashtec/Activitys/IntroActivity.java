@@ -11,7 +11,6 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -28,7 +27,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.labawsrh.aws.trashtec.Adapters.IntroViewPagerAdapter;
 import com.labawsrh.aws.trashtec.Clases_Helper.Firebase_Variables;
-import com.labawsrh.aws.trashtec.Models.User;
 import com.labawsrh.aws.trashtec.R;
 import com.labawsrh.aws.trashtec.Models.ScreenItem;
 import java.util.ArrayList;
@@ -176,7 +174,6 @@ public class IntroActivity extends AppCompatActivity {
         reference.child("Users").child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                User usuario = dataSnapshot.getValue(User.class);
                 Intent mainuserActivity = new Intent(getApplicationContext(),Main_User_Activity.class);
                 startActivity(mainuserActivity);
             }

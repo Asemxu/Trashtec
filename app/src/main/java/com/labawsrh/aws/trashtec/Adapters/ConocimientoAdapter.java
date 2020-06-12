@@ -71,7 +71,7 @@ public class ConocimientoAdapter extends PagerAdapter {
             manager1.setOrientation(LinearLayoutManager.HORIZONTAL);
             RecyclerView lista = dialog.findViewById(R.id.list_imagenes_detalle);
             lista.setLayoutManager(manager1);
-            imagenesadapter = new ImagenesConocimientoAdapter(mContext,imagenes);
+            imagenesadapter = new ImagenesConocimientoAdapter(mContext,imagenes,Constantes.Conocimiento,"");
             lista.setAdapter(imagenesadapter);
             TextView titulo_detalle = dialog.findViewById(R.id.titulo_detalle_conocimiento);
             TextView descripciion_detalle = dialog.findViewById(R.id.contenido_detalle_conocimiento);

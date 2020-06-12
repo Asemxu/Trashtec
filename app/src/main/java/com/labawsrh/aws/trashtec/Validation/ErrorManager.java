@@ -31,12 +31,7 @@ public class ErrorManager {
     public void showErros() {
         dialog.setMessage(getErrors());
         dialog.setTitle("Al parecer hizo algo mal :(");
-        dialog.setNegativeButton("Corregir Errores", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
+        dialog.setNegativeButton("Corregir Errores", (dialog, which) -> dialog.cancel());
 
         AlertDialog dialogo  =dialog.create();
         dialog.show();

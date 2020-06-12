@@ -4,15 +4,15 @@
     <string name="started">Empezar</string>
     <string name="skip">Skip</string>
     <string name="pasar">No volver a mostrar</string>
-    <string name="login">login with</string>
-    <string name="facebook">facebook</string>
-    <string name="google">google</string>
+    <string name="login">Login con</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
     <string name="Sabias">Sabías Que ?</string>
     <string name="categorias">Categorias de equipos Electronicos</string>
     <string name="ver">ver detalles...</string>
     <string name="titulo_main">Recicla Ahora!</string>
     <string name="titulo_main_2">No te quedes</string>
-    <string name="titulo_main_3">SUMATE</string>
+    <string name="titulo_main_3">SÚMATE</string>
     <string name="por">¿Por que?</string>
     <string name="examples">Ejemplos</string>
     <string name="link_video"><u>Ver Video</u></string>
@@ -49,15 +49,15 @@
     <string name="title_notificacion">Notificaciones</string>
     <string name="recibir">Recibir Notificaciones </string>
     <string name="title_otros">Otros</string>
-    <string name="contactanos">Contactanos</string>
+    <string name="contactanos">Contáctanos</string>
     <string name="copyright">Copyright</string>
     <string name="version_serial">Versión y Serial</string>
-    <string name="terminos">Terminos y Condiciones</string>
+    <string name="terminos">Términos y Condiciones</string>
     <string name="text_1_copy">Copyright® 2020 TrashTec</string>
     <string name="text_2_copy">Todos los derechos Reservados</string>
-    <string name="text_version">Version 1.0.1</string>
-    <string name="como_">El recojo se hara una vez a la semana todos los sabados. Nosotros iremos a sus Casas a recoger sus aparatos eletricos y electrónicos.</string>
-    <string name="como_2">En otro caso tambien puede acercarse a los centros de acopios ubicados en las direcciones de los Centros de acopio dentro de la aplicación</string>
+    <string name="text_version">Version 1.1.5</string>
+    <string name="como_">El recojo se hará una vez a la semana todos los Sábados. Nosotros iremos a sus casas a recoger sus aparatos eléctricos y electrónicos.</string>
+    <string name="como_2">En otro caso también puede acercarse a los centros de acopios ubicados en las direcciones dentro de la aplicación</string>
     <string name="como_1_1">Para conseguir puntos primero realize una publicación, una vez aprobada espere que todas las semanas recogeremos sus aparatos dentro del día</string>
     <string name="como_2_2">Ya una vez estando en su domicilio verificaremos si correctamente esta todo en lo publicado. Justo déspues le otorgaremos los puntos</string>
     <!--Menu String bototomnavigationview-->
@@ -67,7 +67,7 @@
     <string name="Guia">Reciclaje</string>
     <string name="more">Más</string>
     <string name="titulo_tesis">"Impacto del Aplicativo Móvil TrashTec en el Reciclaje Tecnológico en el Distrito de Cajamarca"</string>
-    <string name="add_cantidad">Cantidad en Kg</string>
+    <string name="add_cantidad">Peso Aproximado en Kg</string>
     <string name="correo_contacto">trashtrackercompany@gmail.com</string>
 
     <!--font familty -->
