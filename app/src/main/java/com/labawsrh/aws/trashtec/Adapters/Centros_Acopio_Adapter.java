@@ -71,7 +71,7 @@ public class Centros_Acopio_Adapter extends ArrayAdapter implements GoogleMap.In
         TextView estado_acopio = convertView.findViewById(R.id.estado_centro_calendar);
         Picasso.get().load(centro_acopio.Imagen).into(imagen);
         nombre_empresa.setText(centro_acopio.Empresa);
-        hora_apertua.setText("Abre apartir de las  "+ Objects.requireNonNull(centro_acopio.Horario.get(dia_actual)).Inicio + "am");
+        hora_apertua.setText("Disponible a partir de las   "+ Objects.requireNonNull(centro_acopio.Horario.get(dia_actual)).Inicio + " am");
         ValidarOpenorClosed(estado_acopio, Objects.requireNonNull(centro_acopio.Horario.get(dia_actual)).Inicio,
                             Objects.requireNonNull(centro_acopio.Horario.get(dia_actual)).Final);
     }

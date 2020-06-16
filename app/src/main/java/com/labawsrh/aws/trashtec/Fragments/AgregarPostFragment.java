@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -17,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -149,7 +151,7 @@ public class AgregarPostFragment extends Fragment {
             dialog_material = new MaterialAlertDialogBuilder(context);
             dialog_material.setTitle("Aviso");
             dialog_material.setIcon(R.drawable.warning);
-            dialog_material.setMessage("Si guarda una publicación no podra borrarla el mismo dia en que se hara el recogo");
+            dialog_material.setMessage("Si guarda una publicación no podrá borrarla el mismo dia en que se hara el recojo");
             dialog_material.setPositiveButton("Aceptar", (dialog_, which) -> {
                 progressDialog = ProgressDialog.show(getContext(),"Registrando Publicación","Espere mientras se guarda la publicación.......",false,false);
                 Validation validation = new Validation(dialog,GetPublicacion());
@@ -245,33 +247,58 @@ public class AgregarPostFragment extends Fragment {
         switch (imagen_seleccionada){
             case 1:
                 hizodobleclickimagen1++;
-                imagen1.setImageURI(uri);
-                ValidarDobleClick(hizodobleclickimagen1,uri,0);
+                try{
+                    imagen1.setImageURI(uri);
+                    ValidarDobleClick(hizodobleclickimagen1,uri,0);
+                }catch (Exception ex){
+                    Toast.makeText(getContext(),"Algo paso",Toast.LENGTH_SHORT).show();
+                }
                 break;
             case 2:
                 hizodobleclickimagen2++;
-                imagen2.setImageURI(uri);
-                ValidarDobleClick(hizodobleclickimagen2,uri,1);
+                try{
+                    imagen2.setImageURI(uri);
+                    ValidarDobleClick(hizodobleclickimagen2,uri,1);
+                }catch (Exception ex){
+                    Toast.makeText(getContext(),"Algo paso",Toast.LENGTH_SHORT).show();
+                }
                 break;
             case 3:
                 hizodobleclickimagen3++;
-                imagen3.setImageURI(uri);
-                ValidarDobleClick(hizodobleclickimagen3,uri,2);
+                try{
+                    imagen3.setImageURI(uri);
+                    ValidarDobleClick(hizodobleclickimagen3,uri,2);
+                }catch (Exception ex){
+                    Toast.makeText(getContext(),"Algo paso",Toast.LENGTH_SHORT).show();
+                }
                 break;
             case 4:
                 hizodobleclickimagen4++;
-                imagen4.setImageURI(uri);
-                ValidarDobleClick(hizodobleclickimagen4,uri,3);
+                try{
+                    imagen4.setImageURI(uri);
+                    ValidarDobleClick(hizodobleclickimagen4,uri,3);
+                }catch (Exception ex){
+                    Toast.makeText(getContext(),"Algo paso",Toast.LENGTH_SHORT).show();
+                }
                 break;
             case 5:
                 hizodobleclickimagen5++;
-                imagen5.setImageURI(uri);
-                ValidarDobleClick(hizodobleclickimagen5,uri,4);
+                try{
+                    imagen5.setImageURI(uri);
+                    ValidarDobleClick(hizodobleclickimagen5,uri,4);
+                }catch (Exception ex){
+                    Toast.makeText(getContext(),"Algo paso",Toast.LENGTH_SHORT).show();
+                }
                 break;
             case 6:
                 hizodobleclickimagen6++;
-                imagen6.setImageURI(uri);
-                ValidarDobleClick(hizodobleclickimagen6,uri,5);
+                try{
+                    imagen6.setImageURI(uri);
+                    ValidarDobleClick(hizodobleclickimagen6,uri,5);
+                }catch (Exception ex){
+                    Toast.makeText(getContext(),"Algo paso",Toast.LENGTH_SHORT).show();
+                }
+
                 break;
         }
         hizo_click = false;

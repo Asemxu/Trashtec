@@ -2,6 +2,7 @@ package com.labawsrh.aws.trashtec.Fragments;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import static java.util.Calendar.*;
 
@@ -88,7 +90,7 @@ public class CalendarFragment extends Fragment {
             activity.escucha = false;
             navigationView.setOnNavigationItemSelectedListener(null);
             navigationView.setSelectedItemId(R.id.Points);
-            Fragment fragment = new DetalleCentroFragment(centro_acopios.get(position).Id);
+            Fragment fragment = new DetalleCentroFragment(centro_acopios.get(position).Id,false);
             activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
         });
     }
@@ -191,7 +193,7 @@ public class CalendarFragment extends Fragment {
                     Centro_Acopio acopio = data.getValue(Centro_Acopio.class);
                     centro_acopios.add(acopio);
                 }
-                centros_acopio_adapter = new Centros_Acopio_Adapter(getContext(),dia_actual,R.layout.centro_acopio_item_calendar,centro_acopios,Constantes.Calendar);
+                centros_acopio_adapter = new Centros_Acopio_Adapter(Objects.requireNonNull(getContext()),dia_actual,R.layout.centro_acopio_item_calendar,centro_acopios,Constantes.Calendar);
                 lista_acopio.setAdapter(centros_acopio_adapter);
                 cantidad_total = centro_acopios.size()-3;
             }
@@ -202,19 +204,11 @@ public class CalendarFragment extends Fragment {
         });
     }
     private void RefreshLayout() {
-        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                GetDataMes(mes_actual);
-                GetDataAcopio(dia_actual,new ArrayList<Centro_Acopio>());
-                RefresLista();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        refreshLayout.setRefreshing(false);
-                    }
-                },3000);
-            }
+        refreshLayout.setOnRefreshListener(() -> {
+            GetDataMes(mes_actual);
+            GetDataAcopio(dia_actual, new ArrayList<>());
+            RefresLista();
+            new Handler().postDelayed(() -> refreshLayout.setRefreshing(false),3000);
         });
     }
 

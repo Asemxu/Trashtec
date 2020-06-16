@@ -148,6 +148,20 @@ public class ItemCategoriaMapsAdapter extends ArrayAdapter {
             case 5:
                 imagen.setImageResource(R.drawable.bateria);
                 break;
+            case 6:
+                imagen.setImageResource(R.drawable.laptop);
+                break;
+            case 7:
+                imagen.setImageResource(R.drawable.computer);
+                break;
+            case 8:
+                imagen.setImageResource(R.drawable.teclado);
+                break;
+            case 9:
+                imagen.setImageResource(R.drawable.mouse);
+                break;
+            case 10:
+                imagen.setImageResource(R.drawable.audifonos);
         }
     }
 

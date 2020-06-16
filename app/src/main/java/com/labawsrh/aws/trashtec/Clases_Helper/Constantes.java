@@ -13,14 +13,15 @@ public class Constantes {
     public final static int Otros = 4;
     public final static String [] objects = {"Refrigeradora","Microondas","Lampara","Pantalla","Computadora"};
     public final static String [] meses = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
-    public final static String [] dias = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};
-    public final static String [] categorias = {"Aparatos de Refrigeracion","Aparatos grandes y medianos",
-            "Aparatos de Iluminación","Pantallas y Monitores ","Otros Aparatos Electrodomesticos"};
+    public final static String [] dias = {"Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"};
+    public final static String [] categorias = {"Aparatos de refrigeracion","Aparatos grandes y medianos",
+            "Aparatos de iluminación","Pantallas y monitores ","Otros electrodomésticos"};
     public final static String [] categoria1= {"Neveras","Congeladores","Refrigeradores"};
     public final static  String [] categoria2 = {"Microondas","Lavadoras","Cafeteras"};
     public final static String [] categoria3 = {"Tubos fluorescentes","Bombillas"};
-    public final static String [] categoria4 = {"Televisores","Monirotres TRC","Monitores LCD"};
-    public final static String [] categoria5 = {"Impresoras","Telefonos","Celulares","Accessorios de Celular","Routers o Modems","Baterias"};
+    public final static String [] categoria4 = {"Televisores","Monitores TRC","Monitores LCD"};
+    public final static String [] categoria5 = {"Impresoras","Telefonos","Celulares","Accessorios de Celular","Routers o Modems","Baterías","Laptops","Computadoras",
+    "Teclados","Mouse","Audífonos"};
 
 
     public final static String ApiKeyYoutube = "AIzaSyAZN-Mkq2PZl08m6SZF8Ro_qblqb3i4GUg";
@@ -48,7 +49,11 @@ public class Constantes {
     public  final static int Routers = 16;
     public  final static int Baterias = 17;
     public  final static int Telefonos = 13;
-
+    public  final static int Laptops = 18;
+    public  final static int Computadoras = 19;
+    public  final static int Teclados = 20;
+    public final static int Audifonos = 22;
+    public  final static int Mouse = 21;
 
 
     //Referencia a los elementos de la lista
@@ -58,6 +63,11 @@ public class Constantes {
     public final static int CuartoElementoLista = 3;
     public final static int QuintoElementoLista = 4;
     public final static int SextoElementoLista = 5;
+    public final static int SeptimoElementoLista = 6;
+    public final static int OctavoElementoLista = 7;
+    public final static int NovenoElementoLista = 8;
+    public final static int DecimoElementoLista = 9;
+    public final static int OnceavoElementoLista = 11;
 
     public final static String URL_Google_Maps = "https://maps.googleapis.com/maps/api/directions/";
 
@@ -101,7 +111,7 @@ public class Constantes {
 
 
     //Lista ayuda
-    public final static String [] ListaAyuda = {"Realizar Publicación","Como conseguir Puntos?","Como se realiza el recojo?","Como Obtener Descuentos?"};
+    public final static String [] ListaAyuda = {"Realizar publicación","Como conseguir puntos?","Como se realiza el recojo?","Como obtener descuentos?"};
 
     public final static String [] Instruccionespublicacion ={"Primero abra la aplicación","Luego presione la opción de reciclaje y presione mis publicaciones","Presiona el botón + para agregar una publicación",
     "Llena el formulario","Luego espere a que su publicacion sea Aprobada","Una vez aprobada espera a que recogamos sus aparatos"};

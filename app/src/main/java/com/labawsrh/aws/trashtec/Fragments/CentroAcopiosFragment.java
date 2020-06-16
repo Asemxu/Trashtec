@@ -246,6 +246,21 @@ public class CentroAcopiosFragment extends Fragment implements OnMapReadyCallbac
                                 case Constantes.SextoElementoLista:
                                     adapter.SubItem = Constantes.Baterias;
                                     break;
+                                case Constantes.SeptimoElementoLista:
+                                    adapter.SubItem = Constantes.Laptops;
+                                    break;
+                                case Constantes.OctavoElementoLista:
+                                    adapter.SubItem = Constantes.Computadoras;
+                                    break;
+                                case Constantes.NovenoElementoLista:
+                                    adapter.SubItem = Constantes.Teclados;
+                                    break;
+                                case Constantes.DecimoElementoLista:
+                                    adapter.SubItem = Constantes.Mouse;
+                                    break;
+                                case Constantes.OnceavoElementoLista:
+                                    adapter.SubItem = Constantes.Audifonos;
+                                    break;
                             }
                             break;
                     }
@@ -270,7 +285,7 @@ public class CentroAcopiosFragment extends Fragment implements OnMapReadyCallbac
     }
 
     private void GoCentroAcopio(int position) {
-        Fragment fragment = new DetalleCentroFragment(id_centros_acopio_encontrados.get(position));
+        Fragment fragment = new DetalleCentroFragment(id_centros_acopio_encontrados.get(position),true);
         activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
         bottomSheetDialog.dismiss();
     }
@@ -328,6 +343,7 @@ public class CentroAcopiosFragment extends Fragment implements OnMapReadyCallbac
         for (int i = 0; i < navigationView.getMenu().size(); i++) {
             navigationView.getMenu().getItem(i).setEnabled(enable);
         }
+
     }
 
     private void InstanciarViews(View view) {
@@ -495,7 +511,7 @@ public class CentroAcopiosFragment extends Fragment implements OnMapReadyCallbac
     @Override
     public void onInfoWindowClick(Marker marker) {
         if(marker.getSnippet()!=null) {
-            DetalleCentroFragment fragment = new DetalleCentroFragment(Objects.requireNonNull(marker.getTag()).toString());
+            DetalleCentroFragment fragment = new DetalleCentroFragment(Objects.requireNonNull(marker.getTag()).toString(),true);
             activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
         }
     }
@@ -554,7 +570,7 @@ public class CentroAcopiosFragment extends Fragment implements OnMapReadyCallbac
             if(polylineOptions!= null){
                 Map.addPolyline(polylineOptions);
             }else
-                Toast.makeText(getContext(),"No se encontro la ruta",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"No se pudo obtener la información compruebe su internet y active su GPS",Toast.LENGTH_SHORT).show();
         }
     }
     public static String GetUrl(LatLng origen , LatLng destino){

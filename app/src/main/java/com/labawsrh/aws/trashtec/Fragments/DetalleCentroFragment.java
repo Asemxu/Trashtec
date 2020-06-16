@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.DataSnapshot;
@@ -41,9 +42,11 @@ import java.util.Objects;
 public class DetalleCentroFragment extends Fragment {
     private Main_User_Activity activity;
     private ImageView imagen_centro;
+    private MaterialToolbar regresar;
     private String id_centro_acopio;
     private DatabaseReference databaseReference = Firebase_Variables.database_reference;
     private TextView empresa;
+    private Fragment fragment;
     private TextView Direccion;
     private MaterialButton btn_ver_centro_google;
     private ListView lista_horario;
@@ -51,8 +54,10 @@ public class DetalleCentroFragment extends Fragment {
     private ImageView imagen_empresa;
     private BottomNavigationView navigationView;
     private DatabaseReference  database = Firebase_Variables.database_reference;
-    public DetalleCentroFragment(String id) {
+    private boolean estado;
+    public DetalleCentroFragment(String id,boolean estado) {
         this.id_centro_acopio = id;
+        this.estado = estado;
     }
 
     @Nullable
@@ -72,32 +77,44 @@ public class DetalleCentroFragment extends Fragment {
         }
         InstanciarViews(view);
         ClickVer();
+        ClickRegresar();
+    }
+
+    private void ClickRegresar() {
+        regresar.setNavigationOnClickListener(v->{
+            if(!estado) {
+                navigationView.setOnNavigationItemSelectedListener(null);
+                navigationView.setSelectedItemId(R.id.calendar);
+                fragment = new CalendarFragment();
+            }
+            else
+                fragment = new CentroAcopiosFragment();
+
+            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
+        });
     }
 
     private void ClickVer() {
-        btn_ver_centro_google.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //geo:41.3825581,2.1704375?z=16&q=41.3825581,2.1704375(Barcelona)
-                database.child("Posicions_Centro_Acopio").child(id_centro_acopio).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        Coodenadas coordenadas = dataSnapshot.getValue(Coodenadas.class);
-                       // String ruta = "geo:"+coordenadas.Latitud+","+coordenadas.Longitud+"?z=16&q="+coordenadas.Latitud+","+coordenadas.Longitud;
-                        String ruta = "google.navigation:q="+coordenadas.Latitud+","+coordenadas.Longitud;
-                        Uri uri = Uri.parse(ruta);
-                        Intent  intent_google = new Intent(Intent.ACTION_VIEW,uri);
-                        intent_google.setPackage("com.google.android.apps.maps");
-                        activity.startActivity(intent_google);
-                    }
+        btn_ver_centro_google.setOnClickListener(v -> {
+            //geo:41.3825581,2.1704375?z=16&q=41.3825581,2.1704375(Barcelona)
+            database.child("Posicions_Centro_Acopio").child(id_centro_acopio).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    Coodenadas coordenadas = dataSnapshot.getValue(Coodenadas.class);
+                   // String ruta = "geo:"+coordenadas.Latitud+","+coordenadas.Longitud+"?z=16&q="+coordenadas.Latitud+","+coordenadas.Longitud;
+                    String ruta = "google.navigation:q="+coordenadas.Latitud+","+coordenadas.Longitud;
+                    Uri uri = Uri.parse(ruta);
+                    Intent  intent_google = new Intent(Intent.ACTION_VIEW,uri);
+                    intent_google.setPackage("com.google.android.apps.maps");
+                    activity.startActivity(intent_google);
+                }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Toast.makeText(getContext(),"No se pudo Obtener la Información",Toast.LENGTH_SHORT).show();
-                    }
-                });
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(getContext(),"No se pudo Obtener la Información",Toast.LENGTH_SHORT).show();
+                }
+            });
 
-            }
         });
     }
 
@@ -108,6 +125,7 @@ public class DetalleCentroFragment extends Fragment {
         lista_horario = view.findViewById(R.id.lista_horario);
         imagen_empresa = view.findViewById(R.id.detalle_imagen_empresa);
         btn_ver_centro_google = view.findViewById(R.id.btn_ver_centro_google);
+        regresar = view.findViewById(R.id.topAppBarDetalle);
         GetMap();
     }
 
