@@ -56,6 +56,16 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"/>
                         </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Se debe agregar mínimo 3 fotos del aparato **"
+                        android:fontFamily="@font/raleway_medium"
+                        android:textSize="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="7.5dp"
+                        android:textColor="	#A9A9A9"/>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

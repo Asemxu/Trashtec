@@ -86,6 +86,7 @@ public class DetalleCentroFragment extends Fragment {
                 navigationView.setOnNavigationItemSelectedListener(null);
                 navigationView.setSelectedItemId(R.id.calendar);
                 fragment = new CalendarFragment();
+                navigationView.setOnNavigationItemSelectedListener(activity.navlistener);
             }
             else
                 fragment = new CentroAcopiosFragment();

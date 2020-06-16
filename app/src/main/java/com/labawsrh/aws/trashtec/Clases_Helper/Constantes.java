@@ -14,7 +14,7 @@ public class Constantes {
     public final static String [] objects = {"Refrigeradora","Microondas","Lampara","Pantalla","Computadora"};
     public final static String [] meses = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
     public final static String [] dias = {"Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"};
-    public final static String [] categorias = {"Aparatos de refrigeracion","Aparatos grandes y medianos",
+    public final static String [] categorias = {"Aparatos de refrigeración","Aparatos grandes y medianos",
             "Aparatos de iluminación","Pantallas y monitores ","Otros electrodomésticos"};
     public final static String [] categoria1= {"Neveras","Congeladores","Refrigeradores"};
     public final static  String [] categoria2 = {"Microondas","Lavadoras","Cafeteras"};

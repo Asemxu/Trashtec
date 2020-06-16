@@ -13,6 +13,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,6 +78,7 @@ public class CentroAcopiosFragment extends Fragment implements OnMapReadyCallbac
     private BottomNavigationView navigationView;
     private int MY_PERMISSIONS_READ_CONTACTS;
     private GoogleMap Map;
+    private boolean error_rutas;
     private Marker posicion_actual;
     private MapView mapa_centros;
     private List<Coodenadas> lista_coordernadas;
@@ -375,8 +377,11 @@ public class CentroAcopiosFragment extends Fragment implements OnMapReadyCallbac
         Map.getUiSettings().setAllGesturesEnabled(true);
         MapStyleOptions mapStyleOptions = MapStyleOptions.loadRawResourceStyle(getContext(), R.raw.google_style);
         Map.setMapStyle(mapStyleOptions);
-        MiUbicacion();
-        GetDataUbicacionPuntosAcopio();
+        if(checkIfLocationOpened()) {
+            MiUbicacion();
+            GetDataUbicacionPuntosAcopio();
+        }
+        Log.i("Verdad",""+checkIfLocationOpened());
         Map.setOnInfoWindowClickListener(this);
 
     }
@@ -554,23 +559,26 @@ public class CentroAcopiosFragment extends Fragment implements OnMapReadyCallbac
         protected void onPostExecute(List<List<HashMap<String, String>>> lists) {
             ArrayList points = null;
             PolylineOptions polylineOptions = null;
-            for(List<HashMap<String,String>> path:lists){
+            for (List<HashMap<String, String>> path : lists) {
                 points = new ArrayList();
                 polylineOptions = new PolylineOptions();
-                for(HashMap<String,String> point:path){
+                for (HashMap<String, String> point : path) {
                     double lat = Double.parseDouble(point.get("lat"));
                     double lon = Double.parseDouble(point.get("lon"));
-                    points.add(new LatLng(lat,lon));
+                    points.add(new LatLng(lat, lon));
                 }
                 polylineOptions.addAll(points);
                 polylineOptions.width(15);
                 polylineOptions.color(R.color.gradient_start_color);
                 polylineOptions.geodesic(true);
             }
-            if(polylineOptions!= null){
+            if (polylineOptions != null)
                 Map.addPolyline(polylineOptions);
-            }else
-                Toast.makeText(getContext(),"No se pudo obtener la información compruebe su internet y active su GPS",Toast.LENGTH_SHORT).show();
+            else {
+                if(!error_rutas)
+                    Toast.makeText(getContext(), "No se pudo obtener la información de las rutas verifique su intenet y active su GPS", Toast.LENGTH_SHORT).show();
+                error_rutas = true;
+            }
         }
     }
     public static String GetUrl(LatLng origen , LatLng destino){

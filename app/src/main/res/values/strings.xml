@@ -30,9 +30,9 @@
     <string name="direccion">Dirección :</string>
     <string name="titulo_atencion">Horarios de Atención</string>
     <string name="ir_google">Ver en google Maps</string>
-    <string name="select_categoria">Seleccione una Categoria</string>
-    <string name="select_sub_categoria">Seleccione una Sub Categoria</string>
-    <string name="desc">Descripcion del Producto</string>
+    <string name="select_categoria">Seleccione una Categoría</string>
+    <string name="select_sub_categoria">Seleccione una Sub Categoría</string>
+    <string name="desc">Descripción del Producto</string>
     <string name="add_post">Agregar Publicación</string>
     <string name="telefono">Agregar Telefono</string>
     <string name="Titulo_descuentos">Descuentos</string>
